@@ -1,5 +1,7 @@
 const axios = require("axios");
 
+
+// eslint-disable-next-line require-jsdoc
 function getPatient(name) {
   const data = JSON.stringify({
     collection: "patients",

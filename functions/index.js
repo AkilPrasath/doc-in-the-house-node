@@ -1,14 +1,3 @@
-const { onRequest } = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
-
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
-
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
-
 require("dotenv").config();
 const functions = require("firebase-functions");
 const express = require("express");
@@ -22,7 +11,7 @@ app.use(express.json());
 app.get("/patient", async (request, response) => {
   const result = await api.getPatient(request.query.name);
   if (result.data.document === null) {
-    result.data.document = { success: false };
+    result.data.document = {success: false};
   } else {
     result.data.document["success"] = true;
   }
